@@ -15,7 +15,6 @@ const Attendance = () => {
   const [showEditForm, setShowEditForm] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const profileDropdownRef = React.useRef(null);
-  // Close profile dropdown when clicking outside
   useEffect(() => {
     if (isDropdownOpen) {
       const handleClickOutside = (event) => {
