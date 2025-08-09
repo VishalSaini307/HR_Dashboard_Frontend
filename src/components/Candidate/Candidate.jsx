@@ -4,7 +4,7 @@ import axios from "axios";
 import "./Candidate.css";
 import BellIcon from "../../assets/NavbarIcons/Frame1.png";
 import MailIcon from "../../assets/NavbarIcons/Frame2.png";
-import ProfileIcon from "../../assets/NavbarIcons/frame3.png";
+import ProfileIcon from "../../assets/NavbarIcons/Frame3.png";
 
 const Candidate = () => {
   const [showModal, setShowModal] = useState(false);

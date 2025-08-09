@@ -3,7 +3,7 @@ import { Navbar } from "../Navbar/Navbar";
 import "./Attendance.css";
 import BellIcon from "../../assets/NavbarIcons/Frame1.png";
 import MailIcon from "../../assets/NavbarIcons/Frame2.png";
-import ProfileIcon from "../../assets/NavbarIcons/frame3.png";
+import ProfileIcon from "../../assets/NavbarIcons/Frame3.png";
 import { useState } from "react";
 import { useEffect } from "react";
 
