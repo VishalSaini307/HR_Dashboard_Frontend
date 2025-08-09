@@ -1,0 +1,239 @@
+
+.employeesPage {
+  display: flex;
+  height: 100vh;
+}
+
+.employeesContent {
+  flex: 1;
+  padding: 32px;
+  background-color: #f5f5f5;
+  box-sizing: border-box;
+}
+
+.employeesHeader {
+  height : 70px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: left;
+  margin-bottom: 24px;
+ 
+}
+.employeesHeaderTop {
+
+  justify-content: space-between;
+  width: 100%;
+  display: flex;
+  align-items: center;
+ 
+}
+.employeesHeaderBottom {
+  width: 100%;
+  justify-content: space-between;
+
+  display: flex;
+  align-items: center;
+ 
+}
+
+
+.employeesTitle {
+  margin: 0;
+  font-weight: 500;
+}
+
+.employeesFilters {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.employeesDropdown {
+  padding: 6px 18px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  background: #fff;
+}
+
+.employeesActions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.employeesSearch {
+  padding: 6px 18px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  width: 200px;
+  background: #fff;
+}
+
+.employeesAddBtn {
+  background: #4D007D;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 28px;
+  font-weight: 500;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.employeesAddBtn:hover {
+  background: #4D007D;
+}
+
+.employeesTableWrapper {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px #0001;
+  overflow: hidden;
+   height : 85vh;
+}
+
+.employeesTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.employeesTableHeadRow {
+  background: #4D007D;
+  color: #fff;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.employeesTable th, .employeesTable td {
+  padding: 12px 8px;
+  text-align: left;
+}
+
+.employeesTable tbody tr {
+  border-bottom: 1px solid #eee;
+  font-size: 15px;
+  color: #222;
+}
+.employeesTable tbody tr:last-child {
+  border-bottom: none;
+}
+
+.employeesProfileImg {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #eee;
+}
+
+.employeesActionBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 0 8px;
+  color: #4D007D;
+  transition: color 0.2s;
+}
+.actionMenu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 160px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 10px 0;
+  z-index: 10;
+}
+.actionMenuItem {
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+.actionMenuItem:hover {
+  background-color: #f5f5f5;
+}
+.employeeModalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.employeeModalForm {
+  background: #fff;
+  border-radius: 20px;
+  min-width: 600px;
+  box-shadow: 0 2px 12px #0001;
+  padding: 0;
+  overflow: hidden;
+}
+.employeeModalHeader {
+  background: #4D007D;
+  color: #fff;
+  padding: 18px 0;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 500;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  position: relative;
+}
+.employeeModalClose {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  font-size: 28px;
+  cursor: pointer;
+}
+.employeeModalBody {
+    width: 1080px;
+  height: 497px;
+  padding: 16px;
+ 
+}
+.employeeModalRow {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+.employeeModalCol {
+  flex: 1;
+}
+
+.employeeModalLabel {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+.employeeModalInput {
+  width: 100%;
+  padding: 12px;
+  border-radius: 16px;
+  border: 1.5px solid #4D007D;
+  font-size: 16px;
+  outline: none;
+  background: #fff;
+}
+.employeeModalInput::placeholder {
+  color: #111 !important;
+  opacity: 1;
+}
+.candidateIconFrame {
+  display: flex;
+  align-items: center;
+  padding: 6px;
+  gap: 8px;
+  border-radius: 8px;
+  position: relative;
+}

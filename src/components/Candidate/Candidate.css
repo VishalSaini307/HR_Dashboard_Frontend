@@ -1,0 +1,395 @@
+
+.candidatePage {
+  display: flex;
+  height: 100vh;
+}
+
+.candidateMaterial {
+  flex: 1;
+  padding: 32px;
+  background-color: #f5f5f5;
+  box-sizing: border-box;
+}
+
+.candidateHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.candidateTitle {
+  margin: 0;
+  font-weight: 500;
+}
+
+.candidateFilters {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.candidateSelect {
+  padding: 6px 18px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  background: #fff;
+}
+
+.candidateIconFrame {
+  display: flex;
+  align-items: center;
+  padding: 6px;
+  gap: 8px;
+  border-radius: 8px;
+  position: relative;
+}
+.candidateSearchAdd {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.candidateIcon {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+.candidateIconBadge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 12px;
+  height: 12px;
+ 
+
+  display: block;
+}
+.candidateActions {
+  position: absolute;     
+  top: 16px;
+  right: 16px;
+  display: flex;
+  flex-direction: column;  
+  align-items: flex-end;  
+  gap: 16px;
+  padding: 12px;
+  z-index: 999;
+
+}
+
+
+
+.candidateSearch {
+  padding: 6px 18px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  width: 200px;
+  background: #fff;
+}
+
+.candidateAddBtn {
+  background: #4D007D;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 28px;
+  font-weight: 500;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.candidateAddBtn:hover {
+  background: #4D007D;
+}
+
+.candidateTableWrapper {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px #0001;
+  overflow: hidden;
+  height : 85vh;
+}
+
+.candidateTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.candidateTableHeadRow {
+  background: #4D007D;
+  color: #fff;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.candidateTable th, .candidateTable td {
+  padding: 12px 8px;
+  text-align: left;
+}
+
+.candidateTable tbody tr {
+  border-bottom: 1px solid #eee;
+  font-size: 15px;
+  color: #222;
+}
+
+.candidateTable tbody tr:last-child {
+  border-bottom: none;
+}
+
+.candidateStatusSelect {
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  padding: 6px 32px 6px 16px;
+  font-weight: 500;
+  font-size: 14px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: #f3eafd url('data:image/svg+xml;utf8,<svg fill="%234D007D" height="16" viewBox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 12px center/18px 18px;
+  cursor: pointer;
+  outline: none;
+  transition: border 0.2s;
+}
+.candidateStatusSelect:focus {
+  border: 1.5px solid #4D007D;
+}
+.candidateStatusNew {
+   border: 1.5px solid #4D007D;
+}
+.candidateStatusSchduled {
+    border: 1.5px solid #4D007D;
+}
+.candidateStatusOngoing {
+    border: 1.5px solid #4D007D;
+}
+.candidateStatusSelected {
+  border: 1.5px solid #4D007D;
+}
+.candidateStatusRejected {
+    border: 1.5px solid #4D007D;
+}
+/* Remove default arrow in IE */
+select.candidateStatusSelect::-ms-expand {
+  display: none;
+}
+.candidateStatusNew {
+  color: #4D007D;
+}
+.candidateStatusRejected {
+  color: #b71c50;
+}
+.candidateStatusBtn {
+  border: 1px solid #4D007D;
+  color: #4D007D;
+  background: #f3eafd;
+  border-radius: 12px;
+  padding: 2px 16px;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: default;
+}
+.candidateStatusSelected {
+  border: 1px solid #4D007D;
+  color: #4D007D;
+  background: #f3eafd;
+}
+
+.candidateActionBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 0 8px;
+  color: #4D007D;
+  transition: color 0.2s;
+}
+.candidateActionBtn:hover {
+  color: #4D007D;
+}
+
+/* Modal Styles */
+.candidateModalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.candidateModalForm {
+  background: #fff;
+  border-radius: 20px;
+  min-width: 600px;
+  box-shadow: 0 2px 12px #0001;
+  padding: 0;
+  overflow: hidden;
+}
+.candidateModalHeader {
+  background: #4D007D;
+  color: #fff;
+  padding: 18px 0;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 500;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  position: relative;
+}
+.candidateModalClose {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  font-size: 28px;
+  cursor: pointer;
+}
+.candidateModalBody {
+    width: 1080px;
+  height: 497px;
+  padding: 16px;
+ 
+}
+.candidateModalRow {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+.candidateModalCol {
+  flex: 1;
+}
+
+.candidateModalLabel {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+.candidateModalInput {
+  width: 100%;
+  padding: 12px;
+  border-radius: 16px;
+  border: 1.5px solid #4D007D;
+  font-size: 16px;
+  outline: none;
+  background: #fff;
+}
+.candidateModalInput::placeholder {
+  color: #111 !important;
+  opacity: 1;
+}
+
+
+
+.candidateModalFileWrap {
+  position: relative;
+}
+.candidateModalFileIcon {
+  position: absolute;
+  right: 18px;
+  top: 12px;
+  font-size: 22px;
+  color: #4D007D;
+}
+.candidateModalDeclaration {
+  display: flex;
+  align-items: center;
+  width: 100%; /* Use full width for responsiveness */
+  margin-bottom: 18px;
+}
+
+.candidateModalDeclaration input[type="checkbox"] {
+  margin-right: 8px;
+  accent-color: #4D007D; /* Purple checkbox */
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.candidateModalDeclarationText {
+  color: #888;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.candidateModalSaveBtn {
+  width: 140px;
+  padding: 10px 0;
+  border-radius: 20px;
+  background: #4D007D;
+  color: #fff;
+  border: none;
+  font-weight: 500;
+  font-size: 17px;
+  cursor: pointer;
+  margin: 0 auto;
+  display: block;
+  transition: background 0.2s;
+}
+.candidateModalSaveBtn:disabled {
+  background: #e0e0e0;
+  color: #fff;
+  cursor: not-allowed;
+}
+placeholder {
+  color: #000000;
+}
+
+
+
+.actionMenu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 160px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 10px 0;
+  z-index: 10;
+}
+
+.actionMenuItem {
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+.actionMenuItem:hover {
+  background-color: #f5f5f5;
+}
+
+.actionMenuItem.delete {
+  color: #b71c50;
+}
+.profileDropdownWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+  width: 180px;
+}
+
+.dropdownItem {
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.dropdownItem:hover {
+  background-color: #f1f1f1;
+}

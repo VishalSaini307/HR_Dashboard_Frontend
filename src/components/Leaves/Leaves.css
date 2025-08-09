@@ -1,0 +1,318 @@
+.leaveStatusFilterWrapper {
+  min-width: 200px;
+  margin-right: 16px;
+  display: flex;
+  align-items: center;
+}
+/* Status Select/Button Styles (like Candidate) */
+.leaveStatusSelect {
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  padding: 6px 32px 6px 16px;
+  font-weight: 500;
+  font-size: 14px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: #f3eafd url('data:image/svg+xml;utf8,<svg fill="%234D007D" height="16" viewBox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 12px center/18px 18px;
+  cursor: pointer;
+  outline: none;
+  transition: border 0.2s;
+}
+.leaveStatusSelect:focus {
+  border: 1.5px solid #4D007D;
+}
+.leaveStatusApproved {
+  color: #388e3c;
+  background-color: #e8f5e9;
+  border: 1.5px solid #388e3c;
+}
+.leaveStatusPending {
+  color: #ff9800;
+  background-color: #fff3e0;
+  border: 1.5px solid #ff9800;
+}
+.leaveStatusRejected {
+  color: #b71c50;
+  background-color: #fde7ef;
+  border: 1.5px solid #b71c50;
+}
+.leaveStatusBtn {
+  border: 1px solid #4D007D;
+  color: #4D007D;
+  background: #f3eafd;
+  border-radius: 12px;
+  padding: 2px 16px;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: default;
+}
+.leaveStatusApprovedBtn {
+  border: 1.5px solid #388e3c;
+  color: #388e3c;
+  background: #e8f5e9;
+}
+.leaveStatusPendingBtn {
+  border: 1.5px solid #ff9800;
+  color: #ff9800;
+  background: #fff3e0;
+}
+.leaveStatusRejectedBtn {
+  border: 1.5px solid #b71c50;
+  color: #b71c50;
+  background: #fde7ef;
+}
+select.leaveStatusSelect::-ms-expand {
+  display: none;
+}
+.approved-leave-date {
+  background: #4D007D !important;
+  color: #fff !important;
+  border-radius: 50%;
+}
+.employeesPage {
+  display: flex;
+  height: 100vh;
+}
+
+.employeesContent {
+  flex: 1;
+  padding: 32px;
+  background-color: #f5f5f5;
+  box-sizing: border-box;
+}
+
+.employeesHeader {
+  height : 70px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: left;
+  margin-bottom: 24px;
+ 
+}
+.employeesHeaderTop {
+
+  justify-content: space-between;
+  width: 100%;
+  display: flex;
+  align-items: center;
+ 
+}
+.employeesHeaderBottom {
+  width: 100%;
+  justify-content: space-between;
+
+  display: flex;
+  align-items: center;
+ 
+}
+.leavesMain {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.appliedLeavesCard,
+.leaveCalendarCard {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  flex: 1;
+}
+
+.appliedLeavesHeader,
+.leaveCalendarHeader {
+  background: #4D007D;
+  color: white;
+  padding: 0.75rem 1rem;
+  font-weight: bold;
+}
+
+.appliedLeavesTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.appliedLeavesTable th,
+.appliedLeavesTable td {
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.leaveProfilePic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.leaveRole {
+  font-size: 0.8rem;
+  color: gray;
+}
+
+.statusSelect {
+  border-radius: 20px;
+  padding: 0.25rem 0.5rem;
+}
+
+.docBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.leaveCalendarCard {
+  max-width: 300px;
+}
+
+.calendarBox {
+  padding: 1rem;
+}
+
+.approvedLeaves {
+  padding: 1rem;
+}
+
+.approvedLeaveItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+
+.leaveProfilePicSmall {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+/* Modal Styles */
+.leaveModalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.leaveModalForm {
+  background: #fff;
+  border-radius: 20px;
+  min-width: 600px;
+  box-shadow: 0 2px 12px #0001;
+  padding: 0;
+  overflow: hidden;
+}
+.leaveModalHeader {
+  background: #4D007D;
+  color: #fff;
+  padding: 18px 0;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 500;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  position: relative;
+}
+.leaveModalClose {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  font-size: 28px;
+  cursor: pointer;
+}
+.leaveModalBody {
+    width: 1080px;
+  height: 497px;
+  padding: 16px;
+ 
+}
+.leaveModalRow {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+.leaveModalCol {
+  flex: 1;
+}
+
+.leaveModalLabel {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+.leaveModalInput {
+  width: 100%;
+  padding: 12px;
+  border-radius: 16px;
+  border: 1.5px solid #4D007D;
+  font-size: 16px;
+  outline: none;
+  background: #fff;
+}
+.leaveModalInput::placeholder {
+  color: #111 !important;
+  opacity: 1;
+}
+
+
+
+.leaveModalFileWrap {
+  position: relative;
+}
+.leaveModalFileIcon {
+  position: absolute;
+  right: 18px;
+  top: 12px;
+  font-size: 22px;
+  color: #4D007D;
+}
+.leaveModalDeclaration {
+  display: flex;
+  align-items: center;
+  width: 100%; /* Use full width for responsiveness */
+  margin-bottom: 18px;
+}
+
+.leaveModalDeclaration input[type="checkbox"] {
+  margin-right: 8px;
+  accent-color: #4D007D; /* Purple checkbox */
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.leaveModalDeclarationText {
+  color: #888;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.leaveModalSaveBtn {
+  width: 140px;
+  padding: 10px 0;
+  border-radius: 20px;
+  background: #4D007D;
+  color: #fff;
+  border: none;
+  font-weight: 500;
+  font-size: 17px;
+  cursor: pointer;
+  margin: 0 auto;
+  display: block;
+  transition: background 0.2s;
+}
+.leaveModalSaveBtn:disabled {
+  background: #e0e0e0;
+  color: #fff;
+  cursor: not-allowed;
+}
+placeholder {
+  color: #000000;
+}
+
+
