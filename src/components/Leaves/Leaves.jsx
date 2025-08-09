@@ -5,7 +5,7 @@ import { Navbar } from "../Navbar/Navbar";
 import "./Leaves.css";
 import BellIcon from "../../assets/NavbarIcons/Frame1.png";
 import MailIcon from "../../assets/NavbarIcons/Frame2.png";
-import ProfileIcon from "../../assets/NavbarIcons/frame3.png";
+import ProfileIcon from "../../assets/NavbarIcons/Frame3.png";
 import axios from "axios";
 const Leaves = () => {
   const [leaves, setLeaves] = useState([]);
