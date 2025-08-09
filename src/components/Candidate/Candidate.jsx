@@ -65,7 +65,7 @@ const Candidate = () => {
     try {
       const token = localStorage.getItem("token");
       const res = await axios.get(
-        "http://localhost:3000/api/candidates/getall",
+        "https://hr-dashboard-backend-in6k.vercel.app/api/candidates/getall",
         token ? { headers: { Authorization: `Bearer ${token}` } } : {}
       );
       setCandidates(
@@ -104,7 +104,7 @@ const Candidate = () => {
   const handleDownloadResume = async (candidateId) => {
     handleCloseMenu();
     const token = localStorage.getItem("token");
-    const downloadUrl = `http://localhost:3000/api/candidates/${candidateId}/download-resume`;
+    const downloadUrl = `https://hr-dashboard-backend-in6k.vercel.app/api/candidates/${candidateId}/download-resume`;
     try {
       const response = await fetch(downloadUrl, {
         headers: token ? { Authorization: `Bearer ${token}` } : {},
@@ -146,7 +146,7 @@ const Candidate = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await fetch(
-        `http://localhost:3000/api/candidates/delete/${id}`,
+        `https://hr-dashboard-backend-in6k.vercel.app/api/candidates/delete/${id}`,
         {
           method: "DELETE",
           headers: token ? { Authorization: `Bearer ${token}` } : {},
@@ -181,7 +181,7 @@ const Candidate = () => {
     try {
       const token = localStorage.getItem("token");
       await axios.post(
-        "http://localhost:3000/api/candidates/create",
+        "https://hr-dashboard-backend-in6k.vercel.app/api/candidates/create",
         formData,
         {
           headers: {
@@ -238,7 +238,7 @@ const Candidate = () => {
     try {
       const token = localStorage.getItem("token");
       const res = await fetch(
-        `http://localhost:3000/api/candidates/update/${candidateId}`,
+        `https://hr-dashboard-backend-in6k.vercel.app/api/candidates/update/${candidateId}`,
         {
           method: "PUT",
           headers: {

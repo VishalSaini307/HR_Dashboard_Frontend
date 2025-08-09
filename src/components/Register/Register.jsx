@@ -27,7 +27,7 @@ const Register = () => {
       return;
     }
     try {
-      const res = await fetch('http://localhost:3000/api/register', {
+      const res = await fetch('https://hr-dashboard-backend-in6k.vercel.app/api/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
