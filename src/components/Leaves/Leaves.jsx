@@ -56,7 +56,7 @@ const Leaves = () => {
     try {
       const token = localStorage.getItem("token");
       await axios.put(
-        `http://localhost:3000/api/employee-leaves/${id}`,
+        `http://hr-dashboard-backend-gamma.vercel.app/api/employee-leaves/${id}`,
         { attendanceStatus: newStatus },
         token ? { headers: { Authorization: `Bearer ${token}` } } : {}
       );
@@ -78,7 +78,7 @@ const Leaves = () => {
     try {
       const token = localStorage.getItem("token");
       const res = await axios.get(
-        "http://localhost:3000/api/employee-leaves",
+        "http://hr-dashboard-backend-gamma.vercel.app/api/employee-leaves",
         token ? { headers: { Authorization: `Bearer ${token}` } } : {}
       );
       setLeaves(Array.isArray(res.data) ? res.data : []);
@@ -106,7 +106,7 @@ const Leaves = () => {
     try {
       const token = localStorage.getItem("token");
       await axios.post(
-        'http://localhost:3000/api/employee-leaves',
+        'http://hr-dashboard-backend-gamma.vercel.app/api/employee-leaves',
         formData,
         {
           headers: {
@@ -134,7 +134,7 @@ const Leaves = () => {
     try {
       const token = localStorage.getItem("token");
       await axios.delete(
-        `http://localhost:3000/api/employee-leaves/${id}`,
+        `http://hr-dashboard-backend-gamma.vercel.app/api/employee-leaves/${id}`,
         token ? { headers: { Authorization: `Bearer ${token}` } } : {}
       );
       await fetchLeaves();
@@ -267,7 +267,7 @@ const Leaves = () => {
                       {leave.documents ? (
                         <>
                           <a
-                            href={`http://localhost:3000/api/employee-leaves/${leave._id}/download-document`}
+                            href={`http://hr-dashboard-backend-gamma.vercel.app/api/employee-leaves/${leave._id}/download-document`}
                             className="docBtn"
                             title="Download Document"
                             download
