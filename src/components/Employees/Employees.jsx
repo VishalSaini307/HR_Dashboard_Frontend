@@ -38,7 +38,7 @@ const Employees = () => {
     const fetchEmployees = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await fetch("https://hr-dashboard-backend-vishal.vercel.app/api/candidates/getall", {
+        const res = await fetch("http://localhost:3000/api/candidates/getall", {
           headers: token ? { Authorization: `Bearer ${token}` } : {},
         });
         if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
@@ -98,7 +98,7 @@ const Employees = () => {
     try {
       const token = localStorage.getItem("token");
       const res = await fetch(
-        `https://hr-dashboard-backend-vishal.vercel.app/api/candidates/delete/${id}`,
+        `http://localhost:3000/api/candidates/delete/${id}`,
         {
           method: "DELETE",
           headers: token ? { Authorization: `Bearer ${token}` } : {},
@@ -125,7 +125,7 @@ const Employees = () => {
     try {
       const token = localStorage.getItem("token");
       const res = await fetch(
-        `https://hr-dashboard-backend-vishal.vercel.app/api/candidates/update/${editData._id}`,
+        `http://localhost:3000/api/candidates/update/${editData._id}`,
         {
           method: "PUT",
           headers: {
