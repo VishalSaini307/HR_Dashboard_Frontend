@@ -21,7 +21,7 @@ const Login = () => {
     setError('');
     setSuccess('');
     try {
-      const res = await fetch('http://hr-dashboard-backend-gamma.vercel.app/api/login', {
+      const res = await fetch('https://hr-dashboard-backend-gamma.vercel.app/api/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

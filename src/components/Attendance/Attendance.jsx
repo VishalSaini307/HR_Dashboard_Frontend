@@ -37,10 +37,10 @@ const Attendance = () => {
   const fetchEmployees = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch("http://hr-dashboard-backend-gamma.vercel.app/api/candidates/getall", {
+      const res = await fetch("https://hr-dashboard-backend-gamma.vercel.app/api/candidates/getall", {
         headers: token ? { Authorization: `Bearer ${token}` } : {},
       });
-      if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
+      if (!res.ok) throw new Error(`https error! Status: ${res.status}`);
 
       const data = await res.json();
       setattendance(Array.isArray(data) ? data : data.candidates || []);
@@ -104,7 +104,7 @@ const Attendance = () => {
     try {
       const token = localStorage.getItem("token");
       const res = await fetch(
-        `http://hr-dashboard-backend-gamma.vercel.app/api/candidates/delete/${id}`,
+        `https://hr-dashboard-backend-gamma.vercel.app/api/candidates/delete/${id}`,
         {
           method: "DELETE",
           headers: token ? { Authorization: `Bearer ${token}` } : {},
@@ -131,7 +131,7 @@ const Attendance = () => {
     try {
       const token = localStorage.getItem("token");
       const res = await fetch(
-        `http://hr-dashboard-backend-gamma.vercel.app/api/candidates/update/${editData._id}`,
+        `https://hr-dashboard-backend-gamma.vercel.app/api/candidates/update/${editData._id}`,
         {
           method: "PUT",
           headers: {
@@ -158,7 +158,7 @@ const Attendance = () => {
     try {
       const token = localStorage.getItem("token");
       const res = await fetch(
-        `http://hr-dashboard-backend-gamma.vercel.app/api/candidates/update/${emp._id}`,
+        `https://hr-dashboard-backend-gamma.vercel.app/api/candidates/update/${emp._id}`,
         {
           method: "PUT",
           headers: {
@@ -170,7 +170,7 @@ const Attendance = () => {
       );
 
       if (!res.ok) {
-        throw new Error(`HTTP error! status: ${res.status}`);
+        throw new Error(`https error! status: ${res.status}`);
       }
 
       const updated = await res.json();

@@ -56,7 +56,7 @@ const Leaves = () => {
     try {
       const token = localStorage.getItem("token");
       await axios.put(
-        `http://hr-dashboard-backend-gamma.vercel.app/api/employee-leaves/${id}`,
+        `https://hr-dashboard-backend-gamma.vercel.app/api/employee-leaves/${id}`,
         { attendanceStatus: newStatus },
         token ? { headers: { Authorization: `Bearer ${token}` } } : {}
       );
@@ -78,7 +78,7 @@ const Leaves = () => {
     try {
       const token = localStorage.getItem("token");
       const res = await axios.get(
-        "http://hr-dashboard-backend-gamma.vercel.app/api/employee-leaves",
+        "https://hr-dashboard-backend-gamma.vercel.app/api/employee-leaves",
         token ? { headers: { Authorization: `Bearer ${token}` } } : {}
       );
       setLeaves(Array.isArray(res.data) ? res.data : []);
@@ -106,7 +106,7 @@ const Leaves = () => {
     try {
       const token = localStorage.getItem("token");
       await axios.post(
-        'http://hr-dashboard-backend-gamma.vercel.app/api/employee-leaves',
+        'https://hr-dashboard-backend-gamma.vercel.app/api/employee-leaves',
         formData,
         {
           headers: {
@@ -134,7 +134,7 @@ const Leaves = () => {
     try {
       const token = localStorage.getItem("token");
       await axios.delete(
-        `http://hr-dashboard-backend-gamma.vercel.app/api/employee-leaves/${id}`,
+        `https://hr-dashboard-backend-gamma.vercel.app/api/employee-leaves/${id}`,
         token ? { headers: { Authorization: `Bearer ${token}` } } : {}
       );
       await fetchLeaves();
@@ -267,7 +267,7 @@ const Leaves = () => {
                       {leave.documents ? (
                         <>
                           <a
-                            href={`http://hr-dashboard-backend-gamma.vercel.app/api/employee-leaves/${leave._id}/download-document`}
+                            href={`https://hr-dashboard-backend-gamma.vercel.app/api/employee-leaves/${leave._id}/download-document`}
                             className="docBtn"
                             title="Download Document"
                             download
@@ -309,7 +309,7 @@ const Leaves = () => {
               {approvedForSelectedDate.map((leave) => (
                 <div key={leave._id} className="approvedLeaveItem">
                   <img
-                    src={leave.profilePic || 'https://ui-avatars.com/api/?name=' + encodeURIComponent(leave.employeeName)}
+                    src={leave.profilePic || 'httpss://ui-avatars.com/api/?name=' + encodeURIComponent(leave.employeeName)}
                     alt={leave.employeeName}
                     className="leaveProfilePicSmall"
                   />

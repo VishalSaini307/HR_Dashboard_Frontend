@@ -65,7 +65,7 @@ const Candidate = () => {
     try {
       const token = localStorage.getItem("token");
       const res = await axios.get(
-        "http://hr-dashboard-backend-gamma.vercel.app/api/candidates/getall",
+        "https://hr-dashboard-backend-gamma.vercel.app/api/candidates/getall",
         token ? { headers: { Authorization: `Bearer ${token}` } } : {}
       );
       setCandidates(
@@ -104,7 +104,7 @@ const Candidate = () => {
   const handleDownloadResume = async (candidateId) => {
     handleCloseMenu();
     const token = localStorage.getItem("token");
-    const downloadUrl = `http://hr-dashboard-backend-gamma.vercel.app/api/candidates/${candidateId}/download-resume`;
+    const downloadUrl = `https://hr-dashboard-backend-gamma.vercel.app/api/candidates/${candidateId}/download-resume`;
     try {
       const response = await fetch(downloadUrl, {
         headers: token ? { Authorization: `Bearer ${token}` } : {},
@@ -146,7 +146,7 @@ const Candidate = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await fetch(
-        `http://hr-dashboard-backend-gamma.vercel.app/api/candidates/delete/${id}`,
+        `https://hr-dashboard-backend-gamma.vercel.app/api/candidates/delete/${id}`,
         {
           method: "DELETE",
           headers: token ? { Authorization: `Bearer ${token}` } : {},
@@ -181,7 +181,7 @@ const Candidate = () => {
     try {
       const token = localStorage.getItem("token");
       await axios.post(
-        "http://hr-dashboard-backend-gamma.vercel.app/api/candidates/create",
+        "https://hr-dashboard-backend-gamma.vercel.app/api/candidates/create",
         formData,
         {
           headers: {
@@ -238,7 +238,7 @@ const Candidate = () => {
     try {
       const token = localStorage.getItem("token");
       const res = await fetch(
-        `http://hr-dashboard-backend-gamma.vercel.app/api/candidates/update/${candidateId}`,
+        `https://hr-dashboard-backend-gamma.vercel.app/api/candidates/update/${candidateId}`,
         {
           method: "PUT",
           headers: {
@@ -250,7 +250,7 @@ const Candidate = () => {
       );
 
       if (!res.ok) {
-        throw new Error(`HTTP error! status: ${res.status}`);
+        throw new Error(`https error! status: ${res.status}`);
       }
 
       await fetchCandidates();
