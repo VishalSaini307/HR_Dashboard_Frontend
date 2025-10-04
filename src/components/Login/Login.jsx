@@ -16,7 +16,7 @@ const Login = () => {
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
-  const handleSubmit = async (e) => {
+const handleSubmit = async (e) => {
   e.preventDefault();
   setError('');
   setSuccess('');
@@ -27,8 +27,6 @@ const Login = () => {
   }
 
   try {
-    console.log('Sending login request...');
-    
     const res = await fetch('https://hr-dashboard-backend-gamma.vercel.app/api/login', {
       method: 'POST',
       headers: { 
@@ -41,26 +39,23 @@ const Login = () => {
     });
 
     const data = await res.json();
-    console.log('Response data:', data);
+    console.log('Login response:', data);
 
-    if (!res.ok) {
-      throw new Error(data.message || `Login failed (${res.status})`);
+    if (!res.ok || !data.success) {
+      throw new Error(data.message || 'Login failed');
     }
 
-    // Handle successful login with token
+    // Store authentication data
     if (data.token) {
-      // Store token in localStorage or context
       localStorage.setItem('authToken', data.token);
-      localStorage.setItem('tokenExpiry', Date.now() + (data.expiresIn * 1000));
-      
-      setSuccess('Login successful!');
-      
-      setTimeout(() => {
-        navigate('/candidate');
-      }, 1000);
-    } else {
-      throw new Error('No token received');
+      localStorage.setItem('user', JSON.stringify(data.user));
     }
+
+    setSuccess(data.message || 'Login successful!');
+    
+    setTimeout(() => {
+      navigate('/candidate');
+    }, 1000);
 
   } catch (err) {
     console.error('Login error:', err);
