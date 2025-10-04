@@ -20,46 +20,64 @@ const handleSubmit = async (e) => {
   e.preventDefault();
   setError('');
   setSuccess('');
-  
-  if (!form.email || !form.password) {
-    setError('Please fill in all fields');
-    return;
-  }
+
+  // Test credentials
+  const testData = {
+    email: form.email || "test@example.com",
+    password: form.password || "test123"
+  };
 
   try {
-    const res = await fetch('https://hr-dashboard-backend-gamma.vercel.app/api/login', {
+    console.log('Sending login request with:', testData);
+
+    const response = await fetch('https://hr-dashboard-backend-gamma.vercel.app/api/login', {
       method: 'POST',
       headers: { 
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        email: form.email,
-        password: form.password
-      })
+      body: JSON.stringify(testData)
     });
 
-    const data = await res.json();
-    console.log('Login response:', data);
+    console.log('Response status:', response.status);
+    console.log('Response headers:', Object.fromEntries(response.headers.entries()));
 
-    if (!res.ok || !data.success) {
-      throw new Error(data.message || 'Login failed');
+    // Check if response is JSON
+    const contentType = response.headers.get('content-type');
+    if (!contentType || !contentType.includes('application/json')) {
+      const text = await response.text();
+      console.log('Non-JSON response:', text);
+      throw new Error(`Server returned non-JSON response: ${text.substring(0, 100)}`);
     }
 
-    // Store authentication data
+    const data = await response.json();
+    console.log('Response data:', data);
+
+    if (!response.ok) {
+      throw new Error(data.message || `HTTP error! status: ${response.status}`);
+    }
+
+    // Handle successful login
     if (data.token) {
       localStorage.setItem('authToken', data.token);
-      localStorage.setItem('user', JSON.stringify(data.user));
+      setSuccess('Login successful!');
+      setTimeout(() => navigate('/candidate'), 1000);
+    } else if (data.success) {
+      setSuccess(data.message || 'Login successful!');
+      setTimeout(() => navigate('/candidate'), 1000);
+    } else {
+      throw new Error('Invalid response format');
     }
 
-    setSuccess(data.message || 'Login successful!');
-    
-    setTimeout(() => {
-      navigate('/candidate');
-    }, 1000);
-
   } catch (err) {
-    console.error('Login error:', err);
-    setError(err.message || 'Login failed. Please try again.');
+    console.error('Login error details:', err);
+    
+    if (err.name === 'TypeError' && err.message.includes('Failed to fetch')) {
+      setError('Network error: Cannot connect to server. Check CORS or server status.');
+    } else if (err.message.includes('CORS')) {
+      setError('CORS error: Request blocked by browser.');
+    } else {
+      setError(err.message || 'Login failed. Please try again.');
+    }
   }
 };
   return (
