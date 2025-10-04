@@ -17,26 +17,56 @@ const Login = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError('');
-    setSuccess('');
-    try {
-      const res = await fetch('https://hr-dashboard-backend-gamma.vercel.app/api/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email: form.email,
-          password: form.password
-        })
-      });
-      if (!res.ok) throw new Error('Login failed');
-      setSuccess('Login successful!');
-      navigate('/candidate');
-    } catch (err) {
-      setError(err.message);
-    }
-  };
+  e.preventDefault();
+  setError('');
+  setSuccess('');
+  
+  if (!form.email || !form.password) {
+    setError('Please fill in all fields');
+    return;
+  }
 
+  try {
+    console.log('Sending login request...');
+    
+    const res = await fetch('https://hr-dashboard-backend-gamma.vercel.app/api/login', {
+      method: 'POST',
+      headers: { 
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: form.email,
+        password: form.password
+      })
+    });
+
+    const data = await res.json();
+    console.log('Response data:', data);
+
+    if (!res.ok) {
+      throw new Error(data.message || `Login failed (${res.status})`);
+    }
+
+    // Handle successful login with token
+    if (data.token) {
+      // Store token in localStorage or context
+      localStorage.setItem('authToken', data.token);
+      localStorage.setItem('tokenExpiry', Date.now() + (data.expiresIn * 1000));
+      
+      setSuccess('Login successful!');
+      
+      setTimeout(() => {
+        navigate('/candidate');
+      }, 1000);
+    } else {
+      throw new Error('No token received');
+    }
+
+  } catch (err) {
+    console.error('Login error:', err);
+    setError(err.message || 'Login failed. Please try again.');
+  }
+};
   return (
     <>
       <div className="top-logo">
