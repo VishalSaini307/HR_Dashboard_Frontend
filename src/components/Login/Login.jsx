@@ -79,7 +79,15 @@ const handleSubmit = async (e) => {
       setError(err.message || 'Login failed. Please try again.');
     }
   }
+
 };
+//goolgle Login
+const handleGoogleLogin = () => {
+  // Start OAuth flow on backend (route: /api/google)
+  window.location.href = "https://hr-dashboard-backend-gamma.vercel.app/api/google";
+};
+
+
   return (
     <>
       <div className="top-logo">
@@ -143,6 +151,19 @@ const handleSubmit = async (e) => {
             </form>
             <div className="login-link">
               Don’t have an account? <Link to="/">Register</Link>
+            </div>
+            <div className="oauth-container">
+              <button type="button" className="google-button" onClick={handleGoogleLogin} aria-label="Sign in with Google">
+                <span className="g-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 533.5 544.3" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                    <path fill="#4285F4" d="M533.5 278.4c0-17.4-1.6-34.1-4.6-50.4H272.1v95.4h146.9c-6.3 33.7-25 62.3-53.3 81.3v67.7h86.1c50.4-46.5 81.7-115.3 81.7-193.9z"/>
+                    <path fill="#34A853" d="M272.1 544.3c72.6 0 133.6-24.1 178.1-65.5l-86.1-67.7c-23.9 16.1-54.4 25.8-92 25.8-70.9 0-131-47.9-152.3-112.2H29.8v70.3C74 492.6 167.5 544.3 272.1 544.3z"/>
+                    <path fill="#FBBC05" d="M119.8 324.7c-10.8-32.2-10.8-66.9 0-99.1V155.3H29.8c-43.6 85.2-43.6 186.9 0 272.1l90-86.7z"/>
+                    <path fill="#EA4335" d="M272.1 107.7c39.3-.6 76.9 13.5 105.6 39.7l79.2-79.2C405 24.9 344 0 272.1 0 167.5 0 74 51.7 29.8 131.3l90 70.3c21.3-64.3 81.4-112.2 152.3-112.2z"/>
+                  </svg>
+                </span>
+                <span>Sign in with Google</span>
+              </button>
             </div>
           </div>
         </div>
