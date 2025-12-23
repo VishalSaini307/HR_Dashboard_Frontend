@@ -38,15 +38,14 @@ const Employees = () => {
     const fetchEmployees = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await fetch("https://hr-dashboard-backend-gamma.vercel.app/api/candidates/getall", {
+        const res = await fetch("https://hrdashboardbackend-production.up.railway.app/api/candidates/getall", {
           headers: token ? { Authorization: `Bearer ${token}` } : {},
         });
         if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
 
-        const data = await res.json();
-        const selectedEmployees = Array.isArray(data)
-          ? data.filter((emp) => emp.status === "Selected")
-          : (data.candidates || []).filter((emp) => emp.status === "Selected");
+        const json = await res.json();
+        const payload = Array.isArray(json) ? json : (json.data ?? json.candidates ?? []);
+        const selectedEmployees = payload.filter((emp) => emp.status === "Selected");
 
         setEmployees(selectedEmployees);
       } catch (err) {
@@ -98,7 +97,7 @@ const Employees = () => {
     try {
       const token = localStorage.getItem("token");
       const res = await fetch(
-        `https://hr-dashboard-backend-gamma.vercel.app/api/candidates/delete/${id}`,
+        `https://hrdashboardbackend-production.up.railway.app/api/candidates/delete/${id}`,
         {
           method: "DELETE",
           headers: token ? { Authorization: `Bearer ${token}` } : {},
@@ -125,7 +124,7 @@ const Employees = () => {
     try {
       const token = localStorage.getItem("token");
       const res = await fetch(
-        `https://hr-dashboard-backend-gamma.vercel.app/api/candidates/update/${editData._id}`,
+        `https://hrdashboardbackend-production.up.railway.app/api/candidates/update/${editData._id}`,
         {
           method: "PUT",
           headers: {

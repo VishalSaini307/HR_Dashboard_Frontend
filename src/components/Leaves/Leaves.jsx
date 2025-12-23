@@ -56,7 +56,7 @@ const Leaves = () => {
     try {
       const token = localStorage.getItem("token");
       await axios.put(
-        `https://hr-dashboard-backend-gamma.vercel.app/api/employee-leaves/${id}`,
+        `https://hrdashboardbackend-production.up.railway.app/api/employee-leaves/${id}`,
         { attendanceStatus: newStatus },
         token ? { headers: { Authorization: `Bearer ${token}` } } : {}
       );
@@ -78,10 +78,11 @@ const Leaves = () => {
     try {
       const token = localStorage.getItem("token");
       const res = await axios.get(
-        "https://hr-dashboard-backend-gamma.vercel.app/api/employee-leaves",
+        "https://hrdashboardbackend-production.up.railway.app/api/employee-leaves",
         token ? { headers: { Authorization: `Bearer ${token}` } } : {}
       );
-      setLeaves(Array.isArray(res.data) ? res.data : []);
+      const payload = Array.isArray(res.data) ? res.data : (res.data.data ?? res.data.leaves ?? []);
+      setLeaves(payload);
     } catch {
       setLeaves([]);
     }
@@ -106,7 +107,7 @@ const Leaves = () => {
     try {
       const token = localStorage.getItem("token");
       await axios.post(
-        'https://hr-dashboard-backend-gamma.vercel.app/api/employee-leaves',
+        'https://hrdashboardbackend-production.up.railway.app/api/employee-leaves',
         formData,
         {
           headers: {
@@ -134,7 +135,7 @@ const Leaves = () => {
     try {
       const token = localStorage.getItem("token");
       await axios.delete(
-        `https://hr-dashboard-backend-gamma.vercel.app/api/employee-leaves/${id}`,
+        `https://hrdashboardbackend-production.up.railway.app/api/employee-leaves/${id}`,
         token ? { headers: { Authorization: `Bearer ${token}` } } : {}
       );
       await fetchLeaves();
@@ -267,7 +268,7 @@ const Leaves = () => {
                       {leave.documents ? (
                         <>
                           <a
-                            href={`https://hr-dashboard-backend-gamma.vercel.app/api/employee-leaves/${leave._id}/download-document`}
+                            href={`https://hrdashboardbackend-production.up.railway.app/api/employee-leaves/${leave._id}/download-document`}
                             className="docBtn"
                             title="Download Document"
                             download

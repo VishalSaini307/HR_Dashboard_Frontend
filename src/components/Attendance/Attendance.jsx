@@ -37,13 +37,14 @@ const Attendance = () => {
   const fetchEmployees = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch("https://hr-dashboard-backend-gamma.vercel.app/api/candidates/getall", {
+      const res = await fetch("https://hrdashboardbackend-production.up.railway.app/api/candidates/getall", {
         headers: token ? { Authorization: `Bearer ${token}` } : {},
       });
       if (!res.ok) throw new Error(`https error! Status: ${res.status}`);
 
-      const data = await res.json();
-      setattendance(Array.isArray(data) ? data : data.candidates || []);
+      const json = await res.json();
+      const payload = Array.isArray(json) ? json : (json.data ?? json.candidates ?? []);
+      setattendance(payload);
     } catch (err) {
       console.error("Error fetching employees:", err);
     } finally {
@@ -104,7 +105,7 @@ const Attendance = () => {
     try {
       const token = localStorage.getItem("token");
       const res = await fetch(
-        `https://hr-dashboard-backend-gamma.vercel.app/api/candidates/delete/${id}`,
+        `https://hrdashboardbackend-production.up.railway.app/api/candidates/delete/${id}`,
         {
           method: "DELETE",
           headers: token ? { Authorization: `Bearer ${token}` } : {},
@@ -131,7 +132,7 @@ const Attendance = () => {
     try {
       const token = localStorage.getItem("token");
       const res = await fetch(
-        `https://hr-dashboard-backend-gamma.vercel.app/api/candidates/update/${editData._id}`,
+        `https://hrdashboardbackend-production.up.railway.app/api/candidates/update/${editData._id}`,
         {
           method: "PUT",
           headers: {
@@ -158,7 +159,7 @@ const Attendance = () => {
     try {
       const token = localStorage.getItem("token");
       const res = await fetch(
-        `https://hr-dashboard-backend-gamma.vercel.app/api/candidates/update/${emp._id}`,
+        `https://hrdashboardbackend-production.up.railway.app/api/candidates/update/${emp._id}`,
         {
           method: "PUT",
           headers: {

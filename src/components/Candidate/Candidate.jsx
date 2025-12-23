@@ -65,12 +65,11 @@ const Candidate = () => {
     try {
       const token = localStorage.getItem("token");
       const res = await axios.get(
-        "https://hr-dashboard-backend-gamma.vercel.app/api/candidates/getall",
+        "https://hrdashboardbackend-production.up.railway.app/api/candidates/getall",
         token ? { headers: { Authorization: `Bearer ${token}` } } : {}
       );
-      setCandidates(
-        Array.isArray(res.data) ? res.data : res.data.candidates || []
-      );
+      const payload = Array.isArray(res.data) ? res.data : (res.data.data ?? res.data.candidates ?? []);
+      setCandidates(payload);
     } catch {
       setCandidates([]);
     }
@@ -104,7 +103,7 @@ const Candidate = () => {
   const handleDownloadResume = async (candidateId) => {
     handleCloseMenu();
     const token = localStorage.getItem("token");
-    const downloadUrl = `https://hr-dashboard-backend-gamma.vercel.app/api/candidates/${candidateId}/download-resume`;
+    const downloadUrl = `https://hrdashboardbackend-production.up.railway.app/api/candidates/${candidateId}/download-resume`;
     try {
       const response = await fetch(downloadUrl, {
         headers: token ? { Authorization: `Bearer ${token}` } : {},
@@ -146,7 +145,7 @@ const Candidate = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await fetch(
-        `https://hr-dashboard-backend-gamma.vercel.app/api/candidates/delete/${id}`,
+        `https://hrdashboardbackend-production.up.railway.app/api/candidates/delete/${id}`,
         {
           method: "DELETE",
           headers: token ? { Authorization: `Bearer ${token}` } : {},
@@ -181,7 +180,7 @@ const Candidate = () => {
     try {
       const token = localStorage.getItem("token");
       await axios.post(
-        "https://hr-dashboard-backend-gamma.vercel.app/api/candidates/create",
+        "https://hrdashboardbackend-production.up.railway.app/api/candidates/create",
         formData,
         {
           headers: {
@@ -238,7 +237,7 @@ const Candidate = () => {
     try {
       const token = localStorage.getItem("token");
       const res = await fetch(
-        `https://hr-dashboard-backend-gamma.vercel.app/api/candidates/update/${candidateId}`,
+        `https://hrdashboardbackend-production.up.railway.app/api/candidates/update/${candidateId}`,
         {
           method: "PUT",
           headers: {

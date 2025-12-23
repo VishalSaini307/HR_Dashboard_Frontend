@@ -27,7 +27,7 @@ const Register = () => {
       return;
     }
     try {
-      const res = await fetch('https://hr-dashboard-backend-gamma.vercel.app/api/register', {
+      const res = await fetch('https://hrdashboardbackend-production.up.railway.app/api/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

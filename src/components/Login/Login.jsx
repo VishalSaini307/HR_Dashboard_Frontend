@@ -30,7 +30,7 @@ const handleSubmit = async (e) => {
   try {
     console.log('Sending login request with:', testData);
 
-    const response = await fetch('https://hr-dashboard-backend-gamma.vercel.app/api/login', {
+    const response = await fetch('https://hrdashboardbackend-production.up.railway.app/api/login', {
       method: 'POST',
       headers: { 
         'Content-Type': 'application/json',
@@ -84,7 +84,7 @@ const handleSubmit = async (e) => {
 //goolgle Login
 const handleGoogleLogin = () => {
   // Start OAuth flow on backend (route: /api/google)
-  window.location.href = "https://hr-dashboard-backend-gamma.vercel.app/api/google";
+  window.location.href = "https://hrdashboardbackend-production.up.railway.app/api/google";
 };
 
 
